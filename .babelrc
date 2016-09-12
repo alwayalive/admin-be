@@ -1,0 +1,11 @@
+{
+	"presets": ["latest"],
+	"plugins": [
+		"transform-react-jsx",
+		["antd", [{ "libraryName": "antd", "style": "css" }]],
+	],
+	"ignore": [
+		"node_modules",
+		"routes"
+	]
+}

@@ -1,0 +1,664 @@
+@import url(./style.less);
+#main {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+#top {
+    position: absolute;
+    height: 50px;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #545861;
+}
+
+#left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: #1a273a;
+}
+
+#center {
+    position: absolute;
+    top: 0;
+    /*left: 210px;*/
+    right: 0;
+    bottom: 0;
+}
+
+#content {
+    // margin:10px 5px 0;
+    position: absolute;
+    top:50px;
+    bottom:0;
+    right:5px;
+    left:5px;
+    #upper-part{
+        position: absolute;
+        right:0;
+        left:0;
+        top:0;
+    }
+    #second-part{
+        position: absolute;
+        right:0;
+        bottom:0;
+        left:0;
+    }
+}
+
+
+/*-----------------------------------------顶部默认样式-----------------------------------------*/
+
+
+/*=========================================logo默认样式=========================================*/
+
+#top .logo {
+    position: absolute;
+    top: 5px;
+    left: 40px;
+    bottom: 5px;
+    background: url("/public/images/LOGO-3.png") center no-repeat;
+    width: 123px;
+    background-size: 100%;
+}
+
+
+/*=========================================可操作导航栏默认样式=========================================*/
+
+#top .top-nav {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    bottom: 0;
+    padding: 11px 0px;
+    z-index: 10;
+}
+
+#top .top-nav li {
+    float: left;
+    height: 30px;
+    width: 50px;
+    background-color: #243148;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    font-size: 13px;
+    color: yellow;
+    display: inline-block;
+    border-left: 1px solid #545861;
+}
+
+#top .top-nav a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#top .about-us {
+    width: 30px;
+    background: #243148 url(/public/images/question.png) center no-repeat;
+    background-size: contain;
+}
+
+#top .help {
+    width: 30px;
+    background: #243148 url(/public/images/set.png) center no-repeat;
+    background-size: contain;
+}
+
+#top .switch-skin {
+    width: 65px;
+    background: #243148 url(/public/images/skin.png) center no-repeat;
+    background-size: contain;
+}
+
+#top .update-pwd {
+    width: 44px;
+    background: #243148 url(/public/images/info.png) center no-repeat;
+    background-size: contain;
+}
+
+#top .logout {
+    width: 65px;
+    background: #243148 url(/public/images/exit.png) center no-repeat;
+    background-size: contain;
+}
+
+
+/*=========================================菜单列表默认样式========================================================*/
+
+
+/* 菜单导航 */
+
+#left-nav-title {
+    height: 40px;
+    background: #cfced3;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* 菜单导航logo */
+
+#left-nav-title .little-logo {
+    display: block;
+    width: 30px;
+    height: 33px;
+    background: url(/public/images/little_logo.png) center no-repeat;
+    background-size: contain;
+    top: 3px;
+    position: absolute;
+    left: 5px;
+}
+
+
+/* 菜单导航标题 */
+
+#left-nav-title .logo-title {
+    position: absolute;
+    top: 0;
+    left: 45px;
+    font-size: 14px;
+    line-height: 40px;
+}
+
+
+/* 菜单导航箭头指引图案 */
+
+#left .left_arrow {
+    display: block;
+    width: 40px;
+    top: 0;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    background: #a5a4b2 url(/public/images/top_left_arrow.png) center no-repeat;
+}
+
+#left #left-top-l-arrow:hover {
+    background-color: #9b9aa8;
+}
+
+
+/* 导航内容start */
+
+#nav-list li {
+    /*height: 40px;*/
+    line-height: 40px;
+    // overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+#nav-lsit span {
+    font-size: 14px;
+}
+
+#nav-list a {
+    display: block;
+    text-decoration: none;
+    height: 40px;
+    overflow: hidden;
+    text-align: left;
+}
+
+#nav-list li i.before {
+    position: absolute;
+    /*left: 0;*/
+    content: "";
+    display: block;
+    height: 40px;
+    width: 40px;
+    /*top: 0;*/
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/public/images/Ficon2.png");
+}
+
+#nav-list li:after {
+    /*right: 0;*/
+    position: absolute;
+    content: "";
+    display: block;
+    height: 40px;
+    width: 40px;
+    /*top: 0;*/
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/public/images/EL_N.png");
+}
+
+.first{
+    background: #1a273a;
+}
+.second{
+    background: #1e2d44;
+}
+.third{
+    background: #22324c;
+}
+
+/*-----------------------------------------菜单栏打开状态--------------------------------------------------*/
+
+.open #left {
+    width: 210px;
+}
+
+.open #center {
+    left: 210px;
+}
+
+
+/*=========================================一级菜单========================================================*/
+
+// .open #nav-list li.first {
+//     background: #1a273a;
+// }
+
+.open #nav-list li.first.normal a {
+    padding: 0 40px;
+}
+
+.open li.first.selected a,
+.open li.first-hover a {
+    color: #ffd96d;
+}
+
+.open li.first.selected ul {
+    background: #1e2d44;
+    color: #0fabf5;
+}
+
+.open #nav-list li.first.normal i.before {
+    left: 0;
+    top: 0;
+}
+
+.open #nav-list li.first.normal:after {
+    right: 0;
+    top: 0;
+}
+
+.open #nav-list li.first-hover:after {
+    background-image: url("/public/images/EL_C.png");
+}
+
+.open #nav-list li.first.selected:after {
+    background-image: url("/public/images/drop-down.png");
+}
+
+
+/*=========================================二级菜单========================================================*/
+
+// .open #nav-list li.second {
+//     background: #1e2d44;
+// }
+
+.open #nav-list li.second.normal ul {
+    background: #22324c;
+}
+
+// .open #nav-list li {
+//     background: #1e2d44;
+// }
+.open #nav-list li.second.normal a {
+    padding: 0 0 0 60px;
+}
+
+.open #nav-list li.second.normal a {
+    color: #0fabf5;
+}
+
+.open #nav-list li.second.selected a,
+.open #nav-list li.second.second-hover a {
+    color: #ffd96d;
+}
+
+.open #nav-list li.second.normal i.before {
+    left: 25px;
+    top: 0;
+}
+
+.open #nav-list li.second.normal:after {
+    right: 0;
+    top: 0;
+    background-image: url("/public/images/EL_H.png");
+}
+
+.open #nav-list li.second.second-hover:after {
+    background-image: url("/public/images/EL_C.png");
+}
+
+.open #nav-list li.second.selected:after {
+    background-image: url("/public/images/drop-down.png");
+}
+
+
+/*=========================================三级菜单========================================================*/
+
+// .open #nav-list li.third.normal ul {
+//     background: #22324c;
+// }
+
+.open #nav-list li.third.normal a {
+    padding: 0 0 0 80px;
+    color: #15c3e6;
+}
+
+.open #nav-list li.third.selected a,
+.open #nav-list li.third.third-hover a {
+    color: #ffd96d;
+}
+
+.open #nav-list li.third.normal i.before {
+    left: 45px;
+    top: 0;
+}
+
+.open #nav-list li.third.normal:after {
+    display: none;
+}
+
+
+/*-----------------------------------------菜单栏关闭状态--------------------------------------------------*/
+
+.close #left {
+    width: 40px;
+}
+
+.close #center {
+    left: 40px;
+}
+
+.close #left .left_arrow {
+    background: #a5a4b2 url(/public/images/top_right_arrow.png) center no-repeat;
+}
+
+
+/*.close #left .selected {
+        background: #454545;
+    }*/
+
+
+/* ==========================================一级菜单========================================== */
+
+.close #nav-list li.first.normal i.before {
+    left: 0;
+    top: 0;
+}
+
+.close #nav-list li.first.normal:after {
+    display: none;
+}
+
+.close #nav-list .first .first-span {
+    display: none;
+}
+
+.close #nav-list .first.first-hover .first-a {
+    background: #454545;
+}
+
+
+/* ==========================================二级菜单========================================== */
+
+.close #nav-list li.second.normal a {
+    color: #0fabf5;
+}
+
+.close #nav-list li.second.selected a,
+.close #nav-list li.second.second-hover a {
+    color: #ffd96d;
+}
+
+.close #nav-list .second-ul {
+    position: absolute;
+    width: 210px;
+    z-index: 1000;
+    left: 40px;
+    top: 0;
+    background: #22324c;
+    overflow-y: hidden;
+}
+
+.close #nav-list li.second.normal .second-a {
+    padding: 0 0 0 35px;
+}
+
+.close #nav-list li.second.normal i.before {
+    left: 0;
+    top: 0;
+}
+
+.close #nav-list li.second.normal:after {
+    right: 0;
+    top: 0;
+    background-image: url("/public/images/EL_H.png");
+}
+
+.close #nav-list li.second.normal ul {
+    background: #1e2d44;
+}
+
+.close #nav-list li.second.selected i.before,
+.close #nav-list li.second-hover i.before {
+    background-image: url("/public/images/Ficon1.png");
+}
+
+.close #nav-list li.second.second-hover:after {
+    background-image: url("/public/images/EL_C.png");
+}
+
+.close #nav-list li.second.selected:after {
+    background-image: url("/public/images/drop-down.png");
+}
+
+
+/* ==========================================三级菜单========================================== */
+
+.close #nav-list li.third.normal a {
+    padding: 0 0 0 55px;
+}
+
+.close #nav-list li.third.normal ul {
+    background: #22324c;
+}
+
+.close #nav-list li.third.normal a {
+    color: #15c3e6;
+}
+
+.close #nav-list li.third.selected a,
+.close #nav-list li.third.third-hover a {
+    color: #ffd96d;
+}
+
+.close #nav-list li.third.normal i.before {
+    left: 20px;
+    top: 0;
+}
+
+.close #nav-list li.third.normal:after {
+    display: none;
+}
+
+
+/*-------------------------------------------标签栏--------------------------------------------*/
+
+// #tab {
+//     // overflow: hidden;
+//     // height: 40px;
+//     // line-height: 32px;
+//     // // border-bottom: 1px solid #eee;
+//     // background: #ffffff;
+//     // color: #000;
+//     // width: 100%;
+//     // height:40px;
+//     // position: relative;
+//     position: relative;
+//     height: 40px;
+//     width: 100%;
+//     overflow-x: hidden;
+//     overflow-y: visible;
+//     .tab-wrap {}
+//     ul {
+//         overflow: hidden;
+//         width: 9999px;
+//         height: 40px;
+//         margin: 0;
+//         padding: 0;
+//         height: 40px;
+//         background: #cfced3;
+//         position: absolute;
+//         left: 0;
+//         top: 0;
+//     }
+//     li {
+//         float: left;
+//         margin: 0;
+//         margin-right: 10px;
+//         margin-top: 9px;
+//         height: 30px;
+//         line-height: 32px;
+//         cursor: pointer;
+//         background: #cfced3;
+//         position: relative;
+//         border: none;
+//         border: 1px solid #a6a7ac;
+//         border-bottom: none;
+//         z-index: 60;
+//         border-radius: 3px 3px 0 0;
+//         color: #777;
+//         a {
+//             //标签默认样式
+//             display: block;
+//             text-decoration: none;
+//             padding: 0 20px 0 10px;
+//             text-align: center;
+//             // width: 83px;
+//             max-width:120px;
+//             text-overflow: ellipsis;
+//             white-space: nowrap;
+//             overflow: hidden;
+//             font-size: 14px;
+//             color: #777;
+//         }
+//     }
+//     li.selected {
+//         background: #ffffff;
+//         height:31px;
+//     }
+//     li.selected a,
+//     li:hover a {
+//         //标签选中和悬浮样式
+//         color: #000;
+//     }
+//     .tab-closer {
+//         width: 11px;
+//         height: 11px;
+//         overflow: hidden;
+//         position: absolute;
+//         top: 9px;
+//         right: 5px;
+//         z-index: 12;
+//         cursor: pointer;
+//         background: url(/public/images/close.png) center no-repeat;
+//     }
+//     .tab-closer:hover {
+//         background-image: url(/public/images/Hclose.png);
+//         width: 16px;
+//         height: 16px;
+//         top: 6px;
+//         right: 2px;
+//     }
+//     .tab-index {
+//         margin-left: 10px;
+//     }
+//     .tab-index .tab-closer {
+//         //主页标签没有叉叉
+//         display: none;
+//     }
+//     .tab-left-arrow {
+//         //标签栏左箭头按钮
+//         position: absolute;
+//         top: 0px;
+//         left: 0;
+//         width: 30px;
+//         height: 40px;
+//         overflow: hidden;
+//         background: rgba(255, 255, 255, 0.4) url(/public/images/to-left2.png) center no-repeat;
+//         z-index: 100;
+//         cursor: pointer;
+//     }
+//     .tab-right-arrow {
+//         //标签栏右箭头按钮
+//         position: absolute;
+//         top: 0px;
+//         right: 0;
+//         width: 30px;
+//         height: 40px;
+//         overflow: hidden;
+//         background: rgba(255, 255, 255, 0.4) url(/public/images/to-right2.png) center no-repeat;
+//         z-index: 100;
+//         cursor: pointer;
+//     }
+//     .tab-left-arrow:hover,
+//     .tab-right-arrow:hover {
+//         background-color: rgba(255, 255, 255, 0.7)
+//     }
+// }
+
+.slider-menu-appear {}
+
+.slider-menu-appear.slider-menu-appear-active {}
+
+.slider-menu-enter {
+    height: 0;
+}
+
+.slider-menu-enter.slider-menu-enter-active {
+    height: 40px;
+    transition: height .5s;
+}
+
+.slider-menu-leave {
+    height: 40px;
+}
+
+.slider-menu-leave.slider-menu-leave-active {
+    height: 0;
+    transition: height .5s;
+}
+
+.fade-menu-appear {}
+
+.fade-menu-appear.fade-menu-appear-active {}
+
+.fade-menu-enter {
+    opacity: 0;
+}
+
+.fade-menu-enter.fade-menu-enter-active {
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+.fade-menu-leave {
+    opacity: 1;
+}
+
+.fade-menu-leave.fade-menu-leave-active {
+    opacity: 0;
+    transition: opacity 0s;
+}

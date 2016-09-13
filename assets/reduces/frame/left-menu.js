@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux'
-import { fromJS } from 'immutable'
 import { OPEN_MENU, CLOSE_MENU, CLICK_MENU, LOAD_LEFT_MENU, HOVER_MENU } from 'actions/frame/left-menu.js'
 
 function selectedIndex( state = [] , action ){

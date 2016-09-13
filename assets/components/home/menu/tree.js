@@ -1,11 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { fromJS } from 'immutable'
 import ReactCSSTransitionGroup  from 'react-addons-css-transition-group'
 import Tree from './tree.js'
 import { clickMenu, hoverMenu } from 'actions/frame/left-menu.js'
-import { initList } from 'actions/frame/breadcrumb.js'
 
 const levelClassName = ["first","second","third"];
 
@@ -14,7 +12,8 @@ export default connect( state => ({
 	status : state.store.frame.leftMenu.status,
 	hover : state.store.frame.leftMenu.hover,
 }))(React.createClass({
-	liClickHandle( coord, flag ){
+	liClickHandle( e, coord, flag ){
+		e.stopPropagation();
   		let { selectedIndex, dispatch, status } = this.props;
   		if( status === 0 && coord.length === 0 ){
   			setTimeout(()=>dispatch( hoverMenu( coord ) ),100);
@@ -28,16 +27,8 @@ export default connect( state => ({
   		
 	},
 	liMouseEnter( coord ){
-		// let { dispatch } = this.props;
-		// // dispatch( hoverMenu( coord ) );
-		// setTimeout(()=>dispatch( hoverMenu( coord ) ),100);
-	},
-	liMouseLeave(){
 		let { dispatch } = this.props;
-		setTimeout(()=>{
-			dispatch( hoverMenu( [] ) );
-			// dispatch( clickMenu( [] ) );
-		},100);
+		dispatch( hoverMenu( coord ) );
 	},
 	render(){
 		let { list, deepLevel, selectedIndex, show, breadcrumb, status, hover } = this.props,
@@ -66,7 +57,7 @@ export default connect( state => ({
 				}
 				if( !!v.children && show ){
 					return (
-						<li key = { `___${ classNamePrev }_${ deepLevel }_${ k }` } onClick = { e => this.liClickHandle(v.coord, false) } className = { `${ classNamePrev } ${ selectClass } normal ${ hoverClass }` } >
+						<li key = { `___${ classNamePrev }_${ deepLevel }_${ k }` } onMouseEnter = { () => this.liMouseEnter( v.coord ) } onClick = { e => this.liClickHandle( e, v.coord, false) } className = { `${ classNamePrev } ${ selectClass } normal ${ hoverClass }` } >
 			                <i style = { beforeIcon } className = "before" ></i>
 			                <i style = { hBeforeIcon } className = "before h-before" ></i>
 			                <a className = { `${ classNamePrev }-a` } href = "javascript:void(0)">
@@ -77,7 +68,7 @@ export default connect( state => ({
 					)
 				}else if( show ){
 					return (
-						<li key = { `___${ classNamePrev }_${ deepLevel }_${ k }` } onClick = { e => this.liClickHandle( v.coord, true ) } className = { `${ classNamePrev } ${ selectClass } normal ${ hoverClass }` }>
+						<li key = { `___${ classNamePrev }_${ deepLevel }_${ k }` } onMouseEnter = { () => this.liMouseEnter( v.coord ) } onClick = { e => this.liClickHandle( e, v.coord, true ) } className = { `${ classNamePrev } ${ selectClass } normal ${ hoverClass }` }>
 			                <i style = { beforeIcon } className = "before" ></i>
 			                <i style = { hBeforeIcon } className = "before h-before" ></i>
 			                <Link className = { `${ classNamePrev }-a` } to = { v.href || "404" } >
@@ -87,26 +78,10 @@ export default connect( state => ({
 					)
 				}
 			});
-		if( status === 0 && deepLevel === 0 ){
-	        return (
-				<ReactCSSTransitionGroup onMouseLeave = { () => this.liMouseLeave() } component="ul" transitionName={ "slider-menu" } transitionLeaveTimeout={0} transitionEnterTimeout={500} className = { `${ classNamePrev }-ul` }>
-	        		{ lis }
-				</ReactCSSTransitionGroup>
-	        )
-			
-		}else if( deepLevel !== 0 ){
-			return (
-				<ReactCSSTransitionGroup component="ul" transitionName={ "slider-menu" } transitionLeaveTimeout={0} transitionEnterTimeout={500} className = { `${ classNamePrev }-ul` }>
-	        		{ lis }
-				</ReactCSSTransitionGroup>
-	        )
-		}
-		else{
-			return (
-				<ul className = { `${ classNamePrev }-ul` }>
-					{ lis }
-				</ul>
-			)
-		}
+		return (
+			<ReactCSSTransitionGroup component="ul" transitionName={ "slider-menu" } transitionLeaveTimeout={0} transitionEnterTimeout={500} className = { `${ classNamePrev }-ul` }>
+        		{ lis }
+			</ReactCSSTransitionGroup>
+        )
 	}
 }));

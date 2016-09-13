@@ -1,7 +1,7 @@
 import React from "react";
 import Menu from './menu/main';
 import { connect } from 'react-redux';
-import { openMenu, closeMenu, loadLeftMenu, clickMenu } from 'actions/frame/left-menu.js'
+import { openMenu, closeMenu, loadLeftMenu, clickMenu, hoverMenu } from 'actions/frame/left-menu.js'
 import { initList } from 'actions/frame/breadcrumb.js'
 
 export default connect( state => ({
@@ -47,6 +47,10 @@ export default connect( state => ({
             }
         });
     },
+    menuMountLeave(){
+        let { dispatch } = this.props;
+        dispatch( hoverMenu( [] ) );
+    },
 	render(){
 		return (
 			<div id = "left">
@@ -55,7 +59,7 @@ export default connect( state => ({
                     <span className = "logo-title">{ this.props.projectName }</span>
                     <a id = "left-top-l-arrow" onClick = { this.clickHandleArrow } className = "left_arrow" href = "javascript:void(0)" ></a>
                 </div>
-                <div id = "nav-list">
+                <div onMouseLeave = { ()=> this.menuMountLeave() } id = "nav-list">
                     <Menu projectName={ this.props.projectName } ref = "menu" />
                 </div>
             </div>

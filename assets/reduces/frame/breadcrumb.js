@@ -1,4 +1,4 @@
-import { INIT_LIST_BREADCRUMB, defaultVal } from 'actions/frame/breadcrumb.js'
+import { INIT_LIST_BREADCRUMB } from 'actions/frame/breadcrumb.js'
 import { combineReducers } from 'redux'
 	
 function list( state = [] , action ){

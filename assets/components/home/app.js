@@ -3,7 +3,7 @@ import Top from "./top";
 import Main from "./main";
 import { connect } from 'react-redux'
 import { is } from 'immutable'
-import { openMenu, closeMenu, loadLeftMenu, clickMenu } from 'actions/frame/left-menu.js'
+import { clickMenu } from 'actions/frame/left-menu.js'
 import { initList } from 'actions/frame/breadcrumb.js'
 // import { switchStateHistory, pushStateHistory, setHistory } from 'actions/action.js'
 
